@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <!-- Outer Ring -->
+  <circle cx="60" cy="60" r="54" fill="none" stroke="#6B0F1A" stroke-width="3"/>
+  <circle cx="60" cy="60" r="50" fill="none" stroke="#D4A017" stroke-width="1.5" stroke-dasharray="3,3"/>
+  
+  <!-- Outer Text Arc (Simulated via SVG Text Path) -->
+  <path id="textPathTop" d="M 16,60 A 44,44 0 0,1 104,60" fill="none" stroke="none" />
+  <path id="textPathBottom" d="M 104,60 A 44,44 0 0,1 16,60" fill="none" stroke="none" />
+  
+  <text font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="7" fill="#6B0F1A" letter-spacing="1">
+    <textPath href="#textPathTop" startOffset="50%" text-anchor="middle">OSMANIA UNIVERSITY</textPath>
+  </text>
+  <text font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="6" fill="#D4A017" letter-spacing="0.5">
+    <textPath href="#textPathBottom" startOffset="50%" text-anchor="middle">HYDERABAD • INDIA</textPath>
+  </text>
+
+  <!-- Central Shield -->
+  <g transform="translate(35, 30)">
+    <!-- Shield Outline -->
+    <path d="M 0,5 L 25,5 C 25,5 25,28 25,32 C 25,44 12.5,50 12.5,50 C 12.5,50 0,44 0,32 C 0,28 0,5 0,5 Z" fill="#6B0F1A" />
+    <path d="M 2,7 L 23,7 C 23,7 23,27 23,31 C 23,41 12.5,47 12.5,47 C 12.5,47 2,41 2,31 C 2,27 2,7 2,7 Z" fill="none" stroke="#D4A017" stroke-width="1.5" />
+    
+    <!-- Open Book Symbol (Knowledge) -->
+    <path d="M 5,18 Q 8,16 12.5,18 Q 17,16 20,18 L 20,30 Q 17,28 12.5,30 Q 8,28 5,30 Z" fill="#FAF7F2" />
+    <path d="M 12.5,18 L 12.5,30" stroke="#6B0F1A" stroke-width="1" />
+    
+    <!-- Stylized Arabic Letter 'Ain' representing Osman Ali Khan -->
+    <path d="M 12.5,10 C 10.5,10 9,11.5 9,13 C 9,14 9.5,15 10.5,15.5 C 9.5,16.5 8,18 8,20 M 12.5,10 C 14.5,10 16,11.5 16,13 C 16,14 15.5,15 14.5,15.5 C 15.5,16.5 17,18 17,20" fill="none" stroke="#D4A017" stroke-width="1.2" stroke-linecap="round"/>
+    
+    <!-- Graduation Star / Spark -->
+    <polygon points="12.5,36 14,39 17,39.5 14.8,41.5 15.5,44.5 12.5,43 9.5,44.5 10.2,41.5 8,39.5 11,39" fill="#D4A017" />
+  </g>
+
+  <!-- Decorative Laurel Wreath Outer Sides -->
+  <g stroke="#D4A017" stroke-width="1.2" fill="none" stroke-linecap="round">
+    <!-- Left Branch -->
+    <path d="M 22,78 Q 14,64 20,44" />
+    <circle cx="17" cy="71" r="1.5" fill="#D4A017" />
+    <circle cx="15" cy="61" r="1.5" fill="#D4A017" />
+    <circle cx="17" cy="51" r="1.5" fill="#D4A017" />
+    <!-- Right Branch -->
+    <path d="M 98,78 Q 106,64 100,44" />
+    <circle cx="103" cy="71" r="1.5" fill="#D4A017" />
+    <circle cx="105" cy="61" r="1.5" fill="#D4A017" />
+    <circle cx="103" cy="51" r="1.5" fill="#D4A017" />
+  </g>
+</svg>
