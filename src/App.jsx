@@ -1024,15 +1024,15 @@ const App = () => {
               <h4>Project Authors</h4>
               <div className="author-item">
                 <span className="author-name">Gundu Rohan</span>
-                <span className="author-roll">1005-22-807011</span>
+                <span className="author-roll">100522730023</span>
               </div>
               <div className="author-item">
                 <span className="author-name">Medi Hemanth Rao</span>
-                <span className="author-roll">1005-22-807018</span>
+                <span className="author-roll">100522730029</span>
               </div>
               <div className="author-item">
                 <span className="author-name">Nandipaka Karthik</span>
-                <span className="author-roll">1005-22-807025</span>
+                <span className="author-roll">100522730032</span>
               </div>
             </div>
 
@@ -1066,7 +1066,19 @@ const App = () => {
                 4. European Commission, (2023). <em>European Critical Raw Materials Act</em>. Brussels, COM(2023) 160.
               </div>
               <div className="ref-item">
-                5. G. Rohan, M. Hemanth Rao, N. Karthik (2026). <em>Critical Minerals: A Global Overview and India's Strategic Perspective</em>. B.E. Major Project Report, Osmania University.
+                5. U.S. Geological Survey (USGS), (2024). <em>Mineral Commodity Summaries 2024</em>. Reston, Virginia.
+              </div>
+              <div className="ref-item">
+                6. World Bank Group, (2020). <em>Minerals for Climate Action: The Mineral Intensity of the Clean Energy Transition</em>. Climate-Smart Mining Facility.
+              </div>
+              <div className="ref-item">
+                7. Ministry of Mines, Government of India, (2024). <em>National Critical Mineral Mission (NCMM) Operational Guidelines</em>. New Delhi.
+              </div>
+              <div className="ref-item">
+                8. Minerals Security Partnership (MSP), (2023). <em>Consolidating Geopolitically Secure Mineral Supply Chains</em>. Joint Multilateral Statement.
+              </div>
+              <div className="ref-item">
+                9. G. Rohan, M. Hemanth Rao, N. Karthik (2026). <em>Critical Minerals: A Global Overview and India's Strategic Perspective</em>. B.E. Major Project Report, Osmania University.
               </div>
             </div>
           </div>
