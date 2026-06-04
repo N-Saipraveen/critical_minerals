@@ -2663,5 +2663,229 @@ footer {
   }
 }
 
+/* ==========================================================================
+   GEOPOLITICAL SUPPLY CHAIN PLANNER STYLING
+   ========================================================================== */
 
+.planner-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
 
+@media(min-width: 992px) {
+  .planner-layout {
+    grid-template-columns: 0.95fr 1.05fr;
+  }
+}
+
+.planner-controls-card,
+.planner-results-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.planner-controls-card h3,
+.planner-results-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+}
+
+.planner-control-group {
+  margin-bottom: 1.5rem;
+}
+
+.planner-control-group:last-child {
+  margin-bottom: 0;
+}
+
+.planner-control-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.select-full {
+  width: 100%;
+}
+
+.stage-choice-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+
+.rating-pill {
+  border: 1px solid;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.rating-status-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.meter-container {
+  margin-bottom: 2rem;
+}
+
+.meter-label {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Route Flow display */
+.route-flow-box {
+  background: var(--primary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.route-flow-box h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.route-nodes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.route-step {
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.step-tag {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.route-step strong {
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--maroon);
+}
+
+.route-connector-line {
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Compliance planner grid */
+.compliance-grid-planner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.compliance-grid-planner h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.compliance-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.compliance-row:last-child {
+  border-bottom: none;
+}
+
+.compliance-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.compliance-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #CCCCCC;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.compliance-dot.active {
+  background: var(--risk-low);
+  box-shadow: 0 0 8px rgba(46, 125, 50, 0.4);
+}
+
+.compliance-result {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Mobile Optimizations for Route Planner */
+@media(max-width: 576px) {
+  .route-nodes {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+  .route-connector-line {
+    transform: rotate(90deg);
+    align-self: center;
+    margin: 0.25rem 0;
+  }
+  .route-step {
+    padding: 0.6rem;
+  }
+}

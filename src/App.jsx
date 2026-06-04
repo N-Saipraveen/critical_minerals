@@ -5,6 +5,7 @@ import IndiaMap from './components/IndiaMap';
 import MineralsTable from './components/MineralsTable';
 import StatsCounter from './components/StatsCounter';
 import MineralsCalculator from './components/MineralsCalculator';
+import SupplyChainPlanner from './components/SupplyChainPlanner';
 import { ChinaDominanceChart, RecyclingProgressRings } from './components/Charts';
 
 const App = () => {
@@ -18,7 +19,6 @@ const App = () => {
     badge: "Strategic Choke Point"
   });
 
-  const [activeTransitionTab, setActiveTransitionTab] = useState('ev-vs-ice');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [showBibliography, setShowBibliography] = useState(false);
   const [worldSvgContent, setWorldSvgContent] = useState('');
@@ -225,9 +225,9 @@ const App = () => {
             <ul>
               <li><a href="#abstract">Summary</a></li>
               <li><a href="#global-map">Global Map</a></li>
-              <li><a href="#energy-transition">Transition</a></li>
-              <li><a href="#interactive-calculator">Calculator</a></li>
               <li><a href="#supply-chain">Value Chain</a></li>
+              <li><a href="#geopolitical-planner">Planner</a></li>
+              <li><a href="#interactive-calculator">Calculator</a></li>
               <li><a href="#india-strategy">India's Strategy</a></li>
               <li><a href="#minerals-table">Database</a></li>
             </ul>
@@ -622,154 +622,9 @@ const App = () => {
       </section>
 
       {/* ==========================================================================
-           7. THE ENERGY TRANSITION CONNECTION
+           7. GEOPOLITICAL PLANNER (NEW TOP FEATURE)
            ========================================================================== */}
-      <section className="section section-bg-alt" id="energy-transition">
-        <div className="container">
-          <h2>The Clean Energy Engine</h2>
-          <p style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 4rem' }} className="reveal">
-            Modern clean energy generation and storage demand drastically more mineral input than traditional fossil-fuel architectures.
-          </p>
-
-          <div className="comparison-tabs-header reveal">
-            <button className={`tab-btn ${activeTransitionTab === 'ev-vs-ice' ? 'active' : ''}`} onClick={() => setActiveTransitionTab('ev-vs-ice')}>EV vs Conventional Car</button>
-            <button className={`tab-btn ${activeTransitionTab === 'wind-vs-gas' ? 'active' : ''}`} onClick={() => setActiveTransitionTab('wind-vs-gas')}>Wind vs Gas Plant</button>
-            <button className={`tab-btn ${activeTransitionTab === 'battery-chem' ? 'active' : ''}`} onClick={() => setActiveTransitionTab('battery-chem')}>Battery Chemistries</button>
-          </div>
-
-          {/* Tab Content 1: EV vs ICE */}
-          {activeTransitionTab === 'ev-vs-ice' && (
-            <div className="tab-content active">
-              <div className="visual-comparison-grid">
-                <div className="vehicle-card ev">
-                  <div className="vehicle-visual-box">
-                    <svg viewBox="0 0 100 50" fill="none" stroke="#1A7A7A" strokeWidth="2">
-                      <path d="M10 30h10l5-8h50l5 8h10v10H10V30z" />
-                      <circle cx="25" cy="40" r="8" fill="#EBF5F5" stroke="#1A7A7A" strokeWidth="2" />
-                      <circle cx="75" cy="40" r="8" fill="#EBF5F5" stroke="#1A7A7A" strokeWidth="2" />
-                      <path d="M50 15v8m-5-4h10" strokeWidth="1.5"/>
-                    </svg>
-                  </div>
-                  <div className="v-stat">207 kg</div>
-                  <h4>Electric Vehicle (EV)</h4>
-                  <p>Requires massive mineral inputs for the traction battery pack, electric motor, and complex copper wiring.</p>
-                  <table className="vehicle-minerals-table">
-                    <tbody>
-                      <tr><td>Copper</td><td>53.2 kg</td></tr>
-                      <tr><td>Lithium</td><td>8.9 kg</td></tr>
-                      <tr><td>Nickel</td><td>39.9 kg</td></tr>
-                      <tr><td>Manganese</td><td>24.5 kg</td></tr>
-                      <tr><td>Cobalt</td><td>13.3 kg</td></tr>
-                      <tr><td>Graphite</td><td>66.3 kg</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                <div className="vehicle-card ice">
-                  <div className="vehicle-visual-box">
-                    <svg viewBox="0 0 100 50" fill="none" stroke="#5C564F" strokeWidth="2">
-                      <path d="M10 30h10l5-8h50l5 8h10v10H10V30z" />
-                      <circle cx="25" cy="40" r="8" fill="#FAF7F2" stroke="#5C564F" strokeWidth="2" />
-                      <circle cx="75" cy="40" r="8" fill="#FAF7F2" stroke="#5C564F" strokeWidth="2" />
-                    </svg>
-                  </div>
-                  <div className="v-stat">33.9 kg</div>
-                  <h4>Conventional Car (ICE)</h4>
-                  <p>Primarily requires standard copper wiring and small amounts of manganese for steel engine components.</p>
-                  <table className="vehicle-minerals-table">
-                    <tbody>
-                      <tr><td>Copper</td><td>22.3 kg</td></tr>
-                      <tr><td>Manganese</td><td>11.2 kg</td></tr>
-                      <tr><td>Other Metals</td><td>0.4 kg</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Tab Content 2: Wind vs Gas */}
-          {activeTransitionTab === 'wind-vs-gas' && (
-            <div className="tab-content active">
-              <div className="visual-comparison-grid">
-                <div className="vehicle-card ev">
-                  <div className="v-stat">15,400 kg</div>
-                  <h4>Offshore Wind Turbine (per MW)</h4>
-                  <p>Requires heavy copper cabling, zinc coatings, and massive neodymium permanent magnets in the turbine generator.</p>
-                  <table className="vehicle-minerals-table">
-                    <tbody>
-                      <tr><td>Copper</td><td>8,000 kg</td></tr>
-                      <tr><td>Zinc</td><td>5,500 kg</td></tr>
-                      <tr><td>Manganese</td><td>780 kg</td></tr>
-                      <tr><td>Rare Earths (Nd/Dy)</td><td>350 kg</td></tr>
-                      <tr><td>Other Minerals</td><td>770 kg</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-
-                <div className="vehicle-card ice">
-                  <div className="v-stat">1,100 kg</div>
-                  <h4>Natural Gas Power Plant (per MW)</h4>
-                  <p>Requires basic steel framing with low amounts of specialty copper, nickel, and cobalt alloys for turbines.</p>
-                  <table className="vehicle-minerals-table">
-                    <tbody>
-                      <tr><td>Copper</td><td>400 kg</td></tr>
-                      <tr><td>Nickel</td><td>300 kg</td></tr>
-                      <tr><td>Manganese</td><td>200 kg</td></tr>
-                      <tr><td>Other Metals</td><td>200 kg</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Tab Content 3: Battery Chemistry Comparison */}
-          {activeTransitionTab === 'battery-chem' && (
-            <div className="tab-content active">
-              <div className="chemistry-grid">
-                <div className="chem-card">
-                  <span className="chem-title">LFP</span>
-                  <span className="chem-full">Lithium Iron Phosphate</span>
-                  <p>Lower energy density but has excellent safety, long cycle life, and uses zero costly cobalt or nickel. Gaining massive EV market share.</p>
-                  <div className="chem-rating">
-                    <span>Risk Profile:</span>
-                    <span style={{ color: 'var(--risk-low)' }}>Low</span>
-                  </div>
-                </div>
-                <div className="chem-card">
-                  <span className="chem-title">NMC 811</span>
-                  <span className="chem-full">Nickel Manganese Cobalt</span>
-                  <p>Extremely high energy density. Chemistry optimized to reduce cobalt content (8 parts nickel, 1 part manganese, 1 part cobalt).</p>
-                  <div className="chem-rating">
-                    <span>Risk Profile:</span>
-                    <span style={{ color: 'var(--risk-med)' }}>Medium</span>
-                  </div>
-                </div>
-                <div className="chem-card">
-                  <span className="chem-title">NCA</span>
-                  <span className="chem-full">Nickel Cobalt Aluminium</span>
-                  <p>High energy output, used by major premium manufacturers. Significant dependence on refined nickel and cobalt imports.</p>
-                  <div className="chem-rating">
-                    <span>Risk Profile:</span>
-                    <span style={{ color: 'var(--risk-high)' }}>High</span>
-                  </div>
-                </div>
-                <div className="chem-card">
-                  <span className="chem-title">Sodium-Ion</span>
-                  <span className="chem-full">Alternative Tech</span>
-                  <p>Emerging technology replacing lithium with sodium. Relies on abundant elements, bypassing lithium supply bottlenecks entirely.</p>
-                  <div className="chem-rating">
-                    <span>Risk Profile:</span>
-                    <span style={{ color: 'var(--risk-low)' }}>Minimal</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-        </div>
-      </section>
+      <SupplyChainPlanner />
 
       {/* ==========================================================================
            7.5 INTERACTIVE CALCULATOR
