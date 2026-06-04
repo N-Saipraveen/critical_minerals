@@ -10,7 +10,7 @@ import { ChinaDominanceChart, RecyclingProgressRings } from './components/Charts
 const App = () => {
   const [activeCountry, setActiveCountry] = useState({
     name: "China",
-    flag: "🇨🇳",
+    flag: "CN",
     resource: "Rare Earths & Graphite refining",
     share: "85 - 90% of REE refining, 70% Graphite",
     position: "Monopolistic Supply Bottleneck",
@@ -798,7 +798,9 @@ const App = () => {
 
           {/* Recent Event Box */}
           <div className="recent-event-box reveal">
-            <span className="event-icon">🚨</span>
+            <span className="event-icon" style={{ display: 'inline-flex', alignItems: 'center' }}>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '8px', color: 'var(--maroon)' }}><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </span>
             <div>
               <strong>Recent Geopolitical Event (2023):</strong> China restricted exports of gallium and germanium—vital elements for optoelectronics and high-performance radar chips—as a counter-response to Western trade sanctions.
             </div>
@@ -818,22 +820,30 @@ const App = () => {
 
           <div className="impact-pathway reveal">
             <div className="impact-node">
-              <div className="impact-node-icon">⛰️</div>
+              <div className="impact-node-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+              </div>
               <h4>Land</h4>
               <p>Open-pit mining causes massive deforestation and habitat destruction.</p>
             </div>
             <div className="impact-node">
-              <div className="impact-node-icon">💧</div>
+              <div className="impact-node-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-13-7-13S5 10.7 5 15a7 7 0 0 0 7 7z"/></svg>
+              </div>
               <h4>Water</h4>
               <p>Lithium brine extraction in Chile consumes millions of liters of local groundwater.</p>
             </div>
             <div className="impact-node">
-              <div className="impact-node-icon">💨</div>
+              <div className="impact-node-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+              </div>
               <h4>Air</h4>
               <p>High-energy refining and smelting release heavy sulfur dioxide emissions.</p>
             </div>
             <div className="impact-node">
-              <div className="impact-node-icon">🌿</div>
+              <div className="impact-node-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 8a7 7 0 0 1-9 10Z"/><path d="M19 2c-2.26 4.33-5.27 7.14-8 8"/></svg>
+              </div>
               <h4>Biodiversity</h4>
               <p>Tailings leaks pollute local rivers, wiping out aquatic ecosystems.</p>
             </div>
@@ -1011,17 +1021,17 @@ const App = () => {
 
           <div className="kabil-cards-grid reveal">
             <div className="kabil-card">
-              <span className="kabil-partner">🇦🇷 Argentina Agreement</span>
+              <span className="kabil-partner">Argentina Agreement</span>
               <p><strong>Focus:</strong> Lithium brine exploration.</p>
               <p>KABIL secured exploration rights for five lithium brine blocks in Catamarca Province, investing $24 million to establish domestic equity stakes.</p>
             </div>
             <div className="kabil-card">
-              <span className="kabil-partner">🇦🇺 Australia Partnership</span>
+              <span className="kabil-partner">Australia Partnership</span>
               <p><strong>Focus:</strong> Lithium & Cobalt hard-rock deposits.</p>
               <p>Co-investing $6 million in exploratory pipelines to identify hard-rock lithium deposits in Western Australia for priority supply channels.</p>
             </div>
             <div className="kabil-card">
-              <span className="kabil-partner">🌐 Mineral Security Partnership (MSP)</span>
+              <span className="kabil-partner">Mineral Security Partnership (MSP)</span>
               <p><strong>Focus:</strong> Multilateral security alliances.</p>
               <p>India joined the US-led MSP in 2023, collaborating alongside 13 other nations to build alternative, China-free processing chains.</p>
             </div>
@@ -1050,7 +1060,7 @@ const App = () => {
 
           <div className="policy-grid reveal">
             <div className="policy-card">
-              <span className="policy-nation">🇺🇸 USA</span>
+              <span className="policy-nation">USA</span>
               <h4>Inflation Reduction Act (IRA 2022)</h4>
               <p style={{ fontSize: '0.9rem', marginTop: '1rem' }}>
                 <strong>Minerals Listed:</strong> 50 Minerals <br />
@@ -1059,7 +1069,7 @@ const App = () => {
             </div>
 
             <div className="policy-card">
-              <span className="policy-nation">🇪🇺 European Union</span>
+              <span className="policy-nation">European Union</span>
               <h4>Critical Raw Materials Act (CRMA)</h4>
               <p style={{ fontSize: '0.9rem', marginTop: '1rem' }}>
                 <strong>Minerals Listed:</strong> 34 Minerals <br />
@@ -1068,7 +1078,7 @@ const App = () => {
             </div>
 
             <div className="policy-card">
-              <span className="policy-nation">🇦🇺 Australia</span>
+              <span className="policy-nation">Australia</span>
               <h4>Critical Minerals Strategy</h4>
               <p style={{ fontSize: '0.9rem', marginTop: '1rem' }}>
                 <strong>Minerals Listed:</strong> 31 Minerals <br />
@@ -1077,7 +1087,7 @@ const App = () => {
             </div>
 
             <div className="policy-card highlighted">
-              <span className="policy-nation">🇮🇳 India</span>
+              <span className="policy-nation">India</span>
               <h4>National Critical Mineral Mission</h4>
               <p style={{ fontSize: '0.9rem', marginTop: '1rem' }}>
                 <strong>Minerals Listed:</strong> 30 Minerals <br />
@@ -1123,8 +1133,8 @@ const App = () => {
             <div className="rec-item">
               <div className="rec-num">04</div>
               <div>
-                <h4>Integrate AI & Machine Learning in Exploration</h4>
-                <p>Deploy AI/ML models on hyper-spectral remote sensing data to identify deep-seated mineralized pegmatites and reduce exploration costs.</p>
+                <h4>Deploy Advanced Geophysical & Hyperspectral Exploration</h4>
+                <p>Utilize high-resolution satellite hyperspectral remote sensing data and airborne magnetic surveys to detect deep-seated pegmatites and reduce exploration risk.</p>
               </div>
             </div>
           </div>

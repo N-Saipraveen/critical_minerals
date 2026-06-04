@@ -2583,4 +2583,85 @@ footer {
   transition: transform 0.15s ease-out, box-shadow 0.25s ease-out;
 }
 
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVE OVERRIDES
+   ========================================================================== */
+
+/* Reduce padding on sections for mobile to keep layout tight */
+@media(max-width: 768px) {
+  .section {
+    padding: 5rem 0;
+  }
+}
+
+/* Container padding optimization for narrow devices */
+@media(max-width: 480px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+}
+
+/* Adaptive stats layout on medium sized screens */
+@media(min-width: 600px) and (max-width: 991px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile swipeable header navigation to prevent clipping/wrapping */
+@media(max-width: 991px) {
+  header {
+    height: auto;
+    padding: 0.8rem 0;
+  }
+  .nav-container {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+  }
+  nav {
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+  nav ul {
+    width: max-content;
+    padding: 0.2rem 1.25rem;
+    gap: 1.25rem;
+    margin: 0 auto;
+  }
+  nav a {
+    font-size: 0.8rem;
+    white-space: nowrap;
+    padding: 0.25rem 0;
+  }
+}
+
+/* Calculator mobile preset buttons */
+@media(max-width: 480px) {
+  .view-mode-tabs {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  .view-tab-btn {
+    text-align: center;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.88rem;
+  }
+  .calc-tabs {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+  .calc-tab-btn {
+    padding: 0.65rem;
+    font-size: 0.82rem;
+  }
+}
+
+
 

@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 const countriesData = {
   china: {
     name: "China",
-    flag: "🇨🇳",
+    flag: "CN",
     resource: "Rare Earths & Graphite refining",
     share: "85 - 90% of REE refining, 70% Graphite",
     position: "Monopolistic Supply Bottleneck",
@@ -12,7 +12,7 @@ const countriesData = {
   },
   drc: {
     name: "Democratic Republic of Congo",
-    flag: "🇨🇩",
+    flag: "CD",
     resource: "Cobalt (Co)",
     share: "70% of global mine production",
     position: "Vulnerable Primary Miner",
@@ -21,7 +21,7 @@ const countriesData = {
   },
   chile: {
     name: "Chile",
-    flag: "🇨🇱",
+    flag: "CL",
     resource: "Copper (Cu) & Lithium (Li) Brines",
     share: "25% of Copper reserves, 30% Lithium reserves",
     position: "Leading Reserve Node",
@@ -30,7 +30,7 @@ const countriesData = {
   },
   australia: {
     name: "Australia",
-    flag: "🇦🇺",
+    flag: "AU",
     resource: "Hard-rock Lithium (Spodumene)",
     share: "47% of global Lithium mining",
     position: "Leading Raw Supplier",
@@ -39,7 +39,7 @@ const countriesData = {
   },
   indonesia: {
     name: "Indonesia",
-    flag: "🇮🇩",
+    flag: "ID",
     resource: "Nickel (Ni) Ore",
     share: "50% of global Nickel mining output",
     position: "Dominant Miner",
@@ -48,7 +48,7 @@ const countriesData = {
   },
   india: {
     name: "India",
-    flag: "🇮🇳",
+    flag: "IN",
     resource: "30 Critical Minerals (NCMM Focus)",
     share: "100% dependent on imports for Lithium, Cobalt, Nickel",
     position: "Emerging Consumer",
@@ -57,7 +57,7 @@ const countriesData = {
   },
   usa: {
     name: "United States",
-    flag: "🇺🇸",
+    flag: "US",
     resource: "Advanced Battery Tech & Processing (MSP)",
     share: "Leading technology developer & consumer",
     position: "Allied Security Hub",
@@ -66,7 +66,7 @@ const countriesData = {
   },
   argentina: {
     name: "Argentina",
-    flag: "🇦🇷",
+    flag: "AR",
     resource: "Lithium Brines (Catamarca Province)",
     share: "21% of global Lithium reserves",
     position: "Strategic KABIL Joint Venture",
@@ -75,7 +75,7 @@ const countriesData = {
   },
   eu: {
     name: "European Union",
-    flag: "🇪🇺",
+    flag: "EU",
     resource: "Clean Energy Technology & Supply Chains (TTC)",
     share: "Key consumption & environmental standards leader",
     position: "Strategic Tech Partner",

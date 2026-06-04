@@ -316,13 +316,13 @@ const MineralsTable = forwardRef(({ categoryFilter, setCategoryFilter }, ref) =>
             className={`view-tab-btn ${viewMode === 'india' ? 'active' : ''}`}
             onClick={() => { setViewMode('india'); setRiskFilter('all'); }}
           >
-            🇮🇳 India Focus
+            India Focus
           </button>
           <button 
             className={`view-tab-btn ${viewMode === 'global' ? 'active' : ''}`}
             onClick={() => { setViewMode('global'); setRiskFilter('all'); }}
           >
-            🌐 Global Focus (USA/EU Comparison)
+            Global Focus (USA/EU Comparison)
           </button>
         </div>
 
@@ -419,9 +419,9 @@ const MineralsTable = forwardRef(({ categoryFilter, setCategoryFilter }, ref) =>
                     <>
                       <td>
                         <div className="critical-flags">
-                          {m.criticality.in && <span className="flag-badge" title="Critical in India">🇮🇳 IN</span>}
-                          {m.criticality.us && <span className="flag-badge" title="Critical in USA">🇺🇸 US</span>}
-                          {m.criticality.eu && <span className="flag-badge" title="Critical in EU">🇪🇺 EU</span>}
+                          {m.criticality.in && <span className="flag-badge" title="Critical in India">IN</span>}
+                          {m.criticality.us && <span className="flag-badge" title="Critical in USA">US</span>}
+                          {m.criticality.eu && <span className="flag-badge" title="Critical in EU">EU</span>}
                         </div>
                       </td>
                       <td style={{ fontSize: '0.88rem' }}>{m.globalShare}</td>
