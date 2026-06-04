@@ -4,6 +4,7 @@ import ValueChain from './components/ValueChain';
 import IndiaMap from './components/IndiaMap';
 import MineralsTable from './components/MineralsTable';
 import StatsCounter from './components/StatsCounter';
+import MineralsCalculator from './components/MineralsCalculator';
 import { ChinaDominanceChart, RecyclingProgressRings } from './components/Charts';
 
 const App = () => {
@@ -206,9 +207,10 @@ const App = () => {
               <li><a href="#abstract">Summary</a></li>
               <li><a href="#global-map">Global Map</a></li>
               <li><a href="#energy-transition">Transition</a></li>
+              <li><a href="#interactive-calculator">Calculator</a></li>
               <li><a href="#supply-chain">Value Chain</a></li>
               <li><a href="#india-strategy">India's Strategy</a></li>
-              <li><a href="#minerals-table">30 Minerals</a></li>
+              <li><a href="#minerals-table">Database</a></li>
             </ul>
           </nav>
         </div>
@@ -726,6 +728,11 @@ const App = () => {
         </div>
       </section>
 
+      {/* ==========================================================================
+           7.5 INTERACTIVE CALCULATOR
+           ========================================================================== */}
+      <MineralsCalculator />
+
       {/* Parallax Section Transition */}
       <div className="parallax-divider" style={{ backgroundImage: "url('assets/collage.jpeg')" }}>
         <div className="parallax-content">
@@ -1122,7 +1129,7 @@ const App = () => {
               <h4>Project Supervisor</h4>
               <p style={{ marginBottom: '0.5rem' }}><strong>Dr. K. V. Shankar</strong></p>
               <p style={{ fontSize: '0.9rem', lineHeight: '1.4' }}>
-                Professor & Head of Department <br />
+                Professor & Chair Professor <br />
                 Department of Mining Engineering <br />
                 UCE (A), Osmania University
               </p>

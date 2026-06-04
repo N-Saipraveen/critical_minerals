@@ -2160,3 +2160,342 @@ footer {
   font-size: 0.85rem;
   color: var(--text-secondary);
 }
+
+/* ==========================================================================
+   INTERACTIVE CALCULATOR & GLOBAL DATABASE STYLING
+   ========================================================================== */
+
+/* View Mode Tabs (Global vs India Database) */
+.view-mode-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.view-tab-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: var(--shadow-sm);
+}
+
+.view-tab-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--maroon);
+  color: var(--maroon);
+  box-shadow: var(--shadow-md);
+}
+
+.view-tab-btn.active {
+  background: var(--maroon);
+  border-color: var(--maroon);
+  color: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(107, 15, 26, 0.2);
+}
+
+/* Critical Flags for Global Table */
+.critical-flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.flag-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background: var(--secondary-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  cursor: help;
+}
+
+.flag-badge[title*="India"] {
+  background: var(--maroon-light);
+  color: var(--maroon);
+  border-color: rgba(107, 15, 26, 0.2);
+}
+
+.flag-badge[title*="USA"] {
+  background: var(--teal-light);
+  color: var(--teal);
+  border-color: rgba(26, 122, 122, 0.2);
+}
+
+.flag-badge[title*="EU"] {
+  background: var(--gold-light);
+  color: #a87e00;
+  border-color: rgba(212, 160, 23, 0.2);
+}
+
+/* Calculator Layout */
+.calculator-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media(min-width: 992px) {
+  .calculator-layout {
+    grid-template-columns: 0.95fr 1.05fr;
+  }
+}
+
+.calc-controls-card,
+.calc-results-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.calc-controls-card h3,
+.calc-results-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+}
+
+.calc-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.calc-tab-btn {
+  background: var(--secondary-bg);
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.calc-tab-btn:hover {
+  background: var(--maroon-light);
+  color: var(--maroon);
+}
+
+.calc-tab-btn.active {
+  background: var(--maroon);
+  color: #FFFFFF;
+}
+
+.calc-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  min-height: 2.7rem;
+}
+
+/* Slider styling */
+.slider-container {
+  margin-bottom: 2.5rem;
+}
+
+.slider-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.slider-label {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.slider-value {
+  color: var(--maroon);
+  font-size: 1.1rem;
+}
+
+.calc-range-slider {
+  width: 100%;
+  height: 6px;
+  background: var(--secondary-bg);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.calc-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--maroon);
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.1s, background-color 0.2s;
+}
+
+.calc-range-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  background: var(--maroon-hover);
+}
+
+.slider-limits {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
+/* Risk Indicator Box */
+.risk-indicator-box {
+  border: 1px solid;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.risk-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+/* Results display */
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.result-item {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1.25rem;
+}
+
+.result-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.result-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.result-name-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.result-mineral-name {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--maroon);
+}
+
+.result-risk-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+
+.result-risk-badge.high {
+  background: var(--risk-high-light);
+  color: var(--risk-high);
+}
+
+.result-risk-badge.medium {
+  background: var(--risk-med-light);
+  color: var(--risk-med);
+}
+
+.result-risk-badge.low {
+  background: var(--risk-low-light);
+  color: var(--risk-low);
+}
+
+.result-amount {
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 8px;
+  background: var(--secondary-bg);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.progress-bar-fill.high {
+  background: var(--risk-high);
+}
+
+.progress-bar-fill.medium {
+  background: var(--risk-med);
+}
+
+.progress-bar-fill.low {
+  background: var(--risk-low);
+}
+
+.result-item-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Animations */
+.table-row-animate {
+  animation: tableRowFadeIn 0.5s ease-out forwards;
+}
+
+@keyframes tableRowFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
