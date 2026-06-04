@@ -4,41 +4,41 @@ const PLANNER_MINERALS = {
   lithium: {
     name: 'Lithium',
     miningOptions: [
-      { id: 'aus', name: 'Australia', alliance: 'allied', risk: 15, desc: 'Hard-rock spodumene extraction. Highly reliable but lacks domestic refining.' },
-      { id: 'chile', name: 'Chile', alliance: 'allied', risk: 30, desc: 'Brine extraction in the Lithium Triangle. Environmentally vulnerable.' },
-      { id: 'china', name: 'China', alliance: 'monopoly', risk: 75, desc: 'Domestic lepidolite mining. Highly controlled by state mandates.' }
+      { id: 'aus', name: 'Australia 🇦🇺', alliance: 'allied', risk: 15, desc: 'Hard-rock spodumene extraction. Highly reliable but lacks domestic refining.' },
+      { id: 'chile', name: 'Chile 🇨🇱', alliance: 'allied', risk: 30, desc: 'Brine extraction in the Lithium Triangle. Environmentally vulnerable.' },
+      { id: 'china', name: 'China 🇨🇳', alliance: 'monopoly', risk: 75, desc: 'Domestic lepidolite mining. Highly controlled by state mandates.' }
     ]
   },
   cobalt: {
     name: 'Cobalt',
     miningOptions: [
-      { id: 'drc', name: 'DR Congo', alliance: 'unaligned', risk: 70, desc: 'Mines 70% of global cobalt. High human rights and ethical vulnerability.' },
-      { id: 'aus', name: 'Australia', alliance: 'allied', risk: 15, desc: 'Byproduct cobalt mining. Secure but low volume output.' },
-      { id: 'china', name: 'China', alliance: 'monopoly', risk: 80, desc: 'Monopolized state supply networks.' }
+      { id: 'drc', name: 'DR Congo 🇨🇩', alliance: 'unaligned', risk: 70, desc: 'Mines 70% of global cobalt. High human rights and ethical vulnerability.' },
+      { id: 'aus', name: 'Australia 🇦🇺', alliance: 'allied', risk: 15, desc: 'Byproduct cobalt mining. Secure but low volume output.' },
+      { id: 'china', name: 'China 🇨🇳', alliance: 'monopoly', risk: 80, desc: 'Monopolized state supply networks.' }
     ]
   },
   ree: {
     name: 'Rare Earths',
     miningOptions: [
-      { id: 'china', name: 'China', alliance: 'monopoly', risk: 85, desc: 'Dominates heavy rare earth deposits. Immediate embargo threat.' },
-      { id: 'usa', name: 'United States', alliance: 'allied', risk: 20, desc: 'Mountain Pass mine. High security but relies on overseas processing.' },
-      { id: 'aus', name: 'Australia', alliance: 'allied', risk: 15, desc: 'Mt Weld deposit. High-grade allied source.' }
+      { id: 'china', name: 'China 🇨🇳', alliance: 'monopoly', risk: 85, desc: 'Dominates heavy rare earth deposits. Immediate embargo threat.' },
+      { id: 'usa', name: 'United States 🇺🇸', alliance: 'allied', risk: 20, desc: 'Mountain Pass mine. High security but relies on overseas processing.' },
+      { id: 'aus', name: 'Australia 🇦🇺', alliance: 'allied', risk: 15, desc: 'Mt Weld deposit. High-grade allied source.' }
     ]
   }
 };
 
 const REFINING_OPTIONS = [
-  { id: 'china', name: 'China', alliance: 'monopoly', risk: 85, desc: 'Dominates 85% of global chemical refining. Severe single-point failure bottleneck.' },
-  { id: 'india', name: 'India', alliance: 'allied', risk: 35, desc: 'Developing processing infrastructure under NCMM. Moderate security.' },
-  { id: 'usa', name: 'United States', alliance: 'allied', risk: 25, desc: 'High labor and environmental compliance cost, but maximum strategic security.' },
-  { id: 'eu', name: 'European Union', alliance: 'allied', risk: 20, desc: 'Under strict circular mandates. Secure but low chemical throughput.' }
+  { id: 'china', name: 'China 🇨🇳', alliance: 'monopoly', risk: 85, desc: 'Dominates 85% of global chemical refining. Severe single-point failure bottleneck.' },
+  { id: 'india', name: 'India 🇮🇳', alliance: 'allied', risk: 35, desc: 'Developing processing infrastructure under NCMM. Moderate security.' },
+  { id: 'usa', name: 'United States 🇺🇸', alliance: 'allied', risk: 25, desc: 'High labor and environmental compliance cost, but maximum strategic security.' },
+  { id: 'eu', name: 'European Union 🇪🇺', alliance: 'allied', risk: 20, desc: 'Under strict circular mandates. Secure but low chemical throughput.' }
 ];
 
 const MANUFACTURING_OPTIONS = [
-  { id: 'india', name: 'India', alliance: 'allied', label: 'India (PLI Hub)' },
-  { id: 'usa', name: 'United States', alliance: 'allied', label: 'USA (Gigafactory)' },
-  { id: 'eu', name: 'European Union', alliance: 'allied', label: 'EU (Battery Hub)' },
-  { id: 'china', name: 'China', alliance: 'monopoly', label: 'China (Supply Center)' }
+  { id: 'india', name: 'India 🇮🇳', alliance: 'allied', label: 'India 🇮🇳 (PLI Hub)' },
+  { id: 'usa', name: 'United States 🇺🇸', alliance: 'allied', label: 'USA 🇺🇸 (Gigafactory)' },
+  { id: 'eu', name: 'European Union 🇪🇺', alliance: 'allied', label: 'EU 🇪🇺 (Battery Hub)' },
+  { id: 'china', name: 'China 🇨🇳', alliance: 'monopoly', label: 'China 🇨🇳 (Supply Center)' }
 ];
 
 const SupplyChainPlanner = () => {

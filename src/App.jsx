@@ -10,13 +10,16 @@ import { ChinaDominanceChart, RecyclingProgressRings } from './components/Charts
 
 const App = () => {
   const [activeCountry, setActiveCountry] = useState({
+    id: "china",
+    iso2: "cn",
     name: "China",
-    flag: "CN",
+    flag: "🇨🇳",
     resource: "Rare Earths & Graphite refining",
     share: "85 - 90% of REE refining, 70% Graphite",
     position: "Monopolistic Supply Bottleneck",
     desc: "China holds absolute processing control over heavy rare earths, crucial for high-performance military radars and electric vehicle traction magnets.",
-    badge: "Strategic Choke Point"
+    badge: "Strategic Choke Point",
+    color: "#C89312"
   });
 
   const [categoryFilter, setCategoryFilter] = useState('all');
@@ -556,7 +559,7 @@ const App = () => {
           <div className="map-layout">
             {/* Custom Stylized 3D WebGL Globe */}
             <div className="map-wrapper reveal globe-outer-container">
-              <ThreeGlobe onSelectCountry={setActiveCountry} />
+              <ThreeGlobe activeCountry={activeCountry} onSelectCountry={setActiveCountry} />
             </div>
 
             {/* Detail Display Card */}
@@ -876,17 +879,17 @@ const App = () => {
 
           <div className="kabil-cards-grid reveal">
             <div className="kabil-card">
-              <span className="kabil-partner">Argentina Agreement</span>
+              <span className="kabil-partner">🇦🇷 Argentina Agreement</span>
               <p><strong>Focus:</strong> Lithium brine exploration.</p>
               <p>KABIL secured exploration rights for five lithium brine blocks in Catamarca Province, investing $24 million to establish domestic equity stakes.</p>
             </div>
             <div className="kabil-card">
-              <span className="kabil-partner">Australia Partnership</span>
+              <span className="kabil-partner">🇦🇺 Australia Partnership</span>
               <p><strong>Focus:</strong> Lithium & Cobalt hard-rock deposits.</p>
               <p>Co-investing $6 million in exploratory pipelines to identify hard-rock lithium deposits in Western Australia for priority supply channels.</p>
             </div>
             <div className="kabil-card">
-              <span className="kabil-partner">Mineral Security Partnership (MSP)</span>
+              <span className="kabil-partner">🌐 Mineral Security Partnership (MSP)</span>
               <p><strong>Focus:</strong> Multilateral security alliances.</p>
               <p>India joined the US-led MSP in 2023, collaborating alongside 13 other nations to build alternative, China-free processing chains.</p>
             </div>
@@ -915,7 +918,7 @@ const App = () => {
 
           <div className="policy-grid reveal">
             <div className="policy-card">
-              <span className="policy-nation">USA</span>
+              <span className="policy-nation">🇺🇸 USA</span>
               <h4>Inflation Reduction Act (IRA 2022)</h4>
               <p style={{ fontSize: '0.9rem', marginTop: '1rem' }}>
                 <strong>Minerals Listed:</strong> 50 Minerals <br />
@@ -924,7 +927,7 @@ const App = () => {
             </div>
 
             <div className="policy-card">
-              <span className="policy-nation">European Union</span>
+              <span className="policy-nation">🇪🇺 European Union</span>
               <h4>Critical Raw Materials Act (CRMA)</h4>
               <p style={{ fontSize: '0.9rem', marginTop: '1rem' }}>
                 <strong>Minerals Listed:</strong> 34 Minerals <br />
@@ -933,7 +936,7 @@ const App = () => {
             </div>
 
             <div className="policy-card">
-              <span className="policy-nation">Australia</span>
+              <span className="policy-nation">🇦🇺 Australia</span>
               <h4>Critical Minerals Strategy</h4>
               <p style={{ fontSize: '0.9rem', marginTop: '1rem' }}>
                 <strong>Minerals Listed:</strong> 31 Minerals <br />
@@ -942,7 +945,7 @@ const App = () => {
             </div>
 
             <div className="policy-card highlighted">
-              <span className="policy-nation">India</span>
+              <span className="policy-nation">🇮🇳 India</span>
               <h4>National Critical Mineral Mission</h4>
               <p style={{ fontSize: '0.9rem', marginTop: '1rem' }}>
                 <strong>Minerals Listed:</strong> 30 Minerals <br />
