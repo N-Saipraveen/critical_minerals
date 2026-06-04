@@ -2499,3 +2499,88 @@ footer {
   }
 }
 
+/* ==========================================================================
+   VALUE CHAIN SVG FLOW PIPELINE & CURRENT ANIMATIONS
+   ========================================================================== */
+
+.flow-path-active {
+  transition: d 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  filter: drop-shadow(0 0 2px rgba(107, 15, 26, 0.4));
+}
+
+.flow-path-current {
+  animation: flowDash 1.2s linear infinite;
+  filter: drop-shadow(0 0 4px rgba(212, 160, 23, 0.8));
+}
+
+@keyframes flowDash {
+  to {
+    stroke-dashoffset: -25;
+  }
+}
+
+.flow-halo {
+  animation: haloPulse 1.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes haloPulse {
+  0% {
+    r: 6px;
+    opacity: 1;
+    stroke-width: 3px;
+  }
+  50% {
+    opacity: 0.6;
+    stroke-width: 1.5px;
+  }
+  100% {
+    r: 22px;
+    opacity: 0;
+    stroke-width: 0.5px;
+  }
+}
+
+.flow-node {
+  cursor: pointer;
+}
+
+.flow-node rect {
+  fill: var(--card-bg);
+  stroke: var(--border-color);
+  stroke-width: 1.5px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.flow-node text {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.85rem;
+  fill: var(--text-secondary);
+  transition: fill 0.3s ease;
+}
+
+.flow-node:hover rect {
+  stroke: var(--maroon);
+  fill: var(--maroon-light);
+  transform: translateY(-2px);
+}
+
+.flow-node:hover text {
+  fill: var(--maroon);
+}
+
+.flow-node.active rect {
+  fill: var(--maroon);
+  stroke: var(--maroon);
+  filter: drop-shadow(0 4px 10px rgba(107, 15, 26, 0.2));
+}
+
+.flow-node.active text {
+  fill: #FFFFFF;
+}
+
+.value-chain-detail-card {
+  transition: transform 0.15s ease-out, box-shadow 0.25s ease-out;
+}
+
+

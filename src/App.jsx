@@ -188,6 +188,25 @@ const App = () => {
     return "var(--teal)";
   };
 
+  const handleMouseMoveTilt = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * 8; // Max 8 deg
+    const rotateY = ((centerX - x) / centerX) * 8; // Max 8 deg
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    card.style.boxShadow = 'var(--shadow-lg)';
+  };
+
+  const handleMouseLeaveTilt = (e) => {
+    const card = e.currentTarget;
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    card.style.boxShadow = 'var(--shadow-sm)';
+  };
+
   return (
     <div className="react-root-layout">
       {/* ==========================================================================
@@ -418,15 +437,21 @@ const App = () => {
 
           <div className="categories-quadrant reveal">
             {/* Category 1 */}
-            <div className="category-card" onClick={() => handleCategoryClick('Battery')}>
-              <div className="category-header">
+            <div 
+              className="category-card" 
+              onClick={() => handleCategoryClick('Battery')}
+              onMouseMove={handleMouseMoveTilt}
+              onMouseLeave={handleMouseLeaveTilt}
+              style={{ transition: 'transform 0.15s ease-out, box-shadow 0.2s ease-out', transformStyle: 'preserve-3d', willChange: 'transform' }}
+            >
+              <div className="category-header" style={{ transform: 'translateZ(20px)' }}>
                 <div className="category-icon">
                   <svg viewBox="0 0 24 24"><path d="M23 12h-2m-13 0H6m15-4v8c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V8c0-1.1.9-2 2-2h11c1.1 0 2 .9 2 2z" stroke="currentColor" strokeWidth="2" fill="none"/></svg>
                 </div>
                 <h3>Battery & Energy Minerals</h3>
               </div>
-              <p>Essential for energy storage systems, batteries, and electric grid storage. These minerals drive the clean energy transition and experience the fastest growth in demand.</p>
-              <div className="category-minerals">
+              <p style={{ transform: 'translateZ(10px)' }}>Essential for energy storage systems, batteries, and electric grid storage. These minerals drive the clean energy transition and experience the fastest growth in demand.</p>
+              <div className="category-minerals" style={{ transform: 'translateZ(15px)' }}>
                 <div className="minerals-list">
                   <span className="min-tag">Lithium</span>
                   <span className="min-tag">Cobalt</span>
@@ -438,15 +463,21 @@ const App = () => {
             </div>
 
             {/* Category 2 */}
-            <div className="category-card" onClick={() => handleCategoryClick('REE')}>
-              <div className="category-header">
+            <div 
+              className="category-card" 
+              onClick={() => handleCategoryClick('REE')}
+              onMouseMove={handleMouseMoveTilt}
+              onMouseLeave={handleMouseLeaveTilt}
+              style={{ transition: 'transform 0.15s ease-out, box-shadow 0.2s ease-out', transformStyle: 'preserve-3d', willChange: 'transform' }}
+            >
+              <div className="category-header" style={{ transform: 'translateZ(20px)' }}>
                 <div className="category-icon">
                   <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2" stroke="currentColor" strokeWidth="2" fill="none"/><polygon points="2 17 12 22 22 17" stroke="currentColor" strokeWidth="2" fill="none"/><polygon points="2 12 12 17 22 12" stroke="currentColor" strokeWidth="2" fill="none"/></svg>
                 </div>
                 <h3>Rare Earth Elements (REE)</h3>
               </div>
-              <p>A group of 17 chemical elements in the periodic table (lanthanides plus scandium and yttrium) crucial for high-performance permanent magnets used in wind turbines, EV motors, and electronic displays.</p>
-              <div className="category-minerals">
+              <p style={{ transform: 'translateZ(10px)' }}>A group of 17 chemical elements in the periodic table (lanthanides plus scandium and yttrium) crucial for high-performance permanent magnets used in wind turbines, EV motors, and electronic displays.</p>
+              <div className="category-minerals" style={{ transform: 'translateZ(15px)' }}>
                 <div className="minerals-list">
                   <span className="min-tag">Neodymium</span>
                   <span className="min-tag">Dysprosium</span>
@@ -458,15 +489,21 @@ const App = () => {
             </div>
 
             {/* Category 3 */}
-            <div className="category-card" onClick={() => handleCategoryClick('Industrial')}>
-              <div className="category-header">
+            <div 
+              className="category-card" 
+              onClick={() => handleCategoryClick('Industrial')}
+              onMouseMove={handleMouseMoveTilt}
+              onMouseLeave={handleMouseLeaveTilt}
+              style={{ transition: 'transform 0.15s ease-out, box-shadow 0.2s ease-out', transformStyle: 'preserve-3d', willChange: 'transform' }}
+            >
+              <div className="category-header" style={{ transform: 'translateZ(20px)' }}>
                 <div className="category-icon">
                   <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="currentColor" strokeWidth="2" fill="none"/></svg>
                 </div>
                 <h3>Industrial High-Tech Minerals</h3>
               </div>
-              <p>Minerals needed for advanced microchips, semiconductors, photovoltaics, and aerospace alloy manufacturing. Often byproduct minerals with complex extraction processes.</p>
-              <div className="category-minerals">
+              <p style={{ transform: 'translateZ(10px)' }}>Minerals needed for advanced microchips, semiconductors, photovoltaics, and aerospace alloy manufacturing. Often byproduct minerals with complex extraction processes.</p>
+              <div className="category-minerals" style={{ transform: 'translateZ(15px)' }}>
                 <div className="minerals-list">
                   <span className="min-tag">Silicon</span>
                   <span className="min-tag">Gallium</span>
@@ -478,15 +515,21 @@ const App = () => {
             </div>
 
             {/* Category 4 */}
-            <div className="category-card" onClick={() => handleCategoryClick('Strategic')}>
-              <div className="category-header">
+            <div 
+              className="category-card" 
+              onClick={() => handleCategoryClick('Strategic')}
+              onMouseMove={handleMouseMoveTilt}
+              onMouseLeave={handleMouseLeaveTilt}
+              style={{ transition: 'transform 0.15s ease-out, box-shadow 0.2s ease-out', transformStyle: 'preserve-3d', willChange: 'transform' }}
+            >
+              <div className="category-header" style={{ transform: 'translateZ(20px)' }}>
                 <div className="category-icon">
                   <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="2" fill="none"/></svg>
                 </div>
                 <h3>Strategic & Defence Minerals</h3>
               </div>
-              <p>Critical for armor plating, missile guidance systems, radar components, and lightweight high-strength aerospace structures. Directly linked to national sovereignty.</p>
-              <div className="category-minerals">
+              <p style={{ transform: 'translateZ(10px)' }}>Critical for armor plating, missile guidance systems, radar components, and lightweight high-strength aerospace structures. Directly linked to national sovereignty.</p>
+              <div className="category-minerals" style={{ transform: 'translateZ(15px)' }}>
                 <div className="minerals-list">
                   <span className="min-tag">Titanium</span>
                   <span className="min-tag">Beryllium</span>

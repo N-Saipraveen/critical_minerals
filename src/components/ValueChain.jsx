@@ -37,13 +37,81 @@ const ValueChain = () => {
   const [activeStage, setActiveStage] = useState(1);
   const data = chainData[activeStage];
 
+  // 3D Card Tilt Effect
+  const handleMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * 6; // max 6 degrees
+    const rotateY = ((centerX - x) / centerX) * 6; // max 6 degrees
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    card.style.boxShadow = '0 20px 40px rgba(107, 15, 26, 0.12)';
+  };
+
+  const handleMouseLeave = (e) => {
+    const card = e.currentTarget;
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    card.style.boxShadow = 'var(--shadow-md)';
+  };
+
+  const currentX = 75 + (activeStage - 1) * 160;
+
   return (
     <div className="value-chain-component">
       {/* Interactive SVG Flowchart */}
       <div className="flow-diagram-wrapper">
         <svg viewBox="0 0 1000 120" className="flow-svg">
-          {/* Flow Line Paths with Moving Dash Animation */}
-          <path d="M 100,60 L 900,60" className="flow-path active" />
+          {/* Inactive Base Path Line */}
+          <path d="M 75,60 L 875,60" stroke="rgba(107, 15, 26, 0.08)" strokeWidth="4" strokeLinecap="round" />
+          
+          {/* Dynamic Active Grow Line */}
+          <path 
+            d={`M 75,60 L ${currentX},60`} 
+            stroke="var(--maroon)" 
+            strokeWidth="4" 
+            strokeLinecap="round"
+            className="flow-path-active"
+            style={{ transition: 'd 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)' }}
+          />
+
+          {/* Flowing Dash Line Overlay for Energy Current */}
+          {activeStage > 1 && (
+            <path 
+              d={`M 75,60 L ${currentX},60`} 
+              stroke="var(--gold)" 
+              strokeWidth="4" 
+              strokeLinecap="round"
+              strokeDasharray="10 15"
+              className="flow-path-current"
+              style={{ transition: 'd 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)' }}
+            />
+          )}
+
+          {/* Pulsing halo around current stage endpoint */}
+          <circle 
+            cx={currentX} 
+            cy="60" 
+            r="12" 
+            fill="none" 
+            stroke="var(--gold)" 
+            strokeWidth="2" 
+            className="flow-halo" 
+            style={{ 
+              transition: 'cx 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)',
+              transformOrigin: `${currentX}px 60px`
+            }}
+          />
+
+          <circle 
+            cx={currentX} 
+            cy="60" 
+            r="6" 
+            fill="var(--gold)" 
+            style={{ transition: 'cx 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)' }}
+          />
           
           {/* Nodes */}
           {/* Exploration */}
@@ -84,13 +152,24 @@ const ValueChain = () => {
         </svg>
       </div>
 
-      {/* Detail Card for Active Flow Node */}
-      <div className="risk-card" style={{ maxWidth: '800px', margin: '0 auto' }}>
+      {/* Detail Card for Active Flow Node with 3D Tilt Effect */}
+      <div 
+        className="risk-card value-chain-detail-card" 
+        style={{ 
+          maxWidth: '800px', 
+          margin: '0 auto',
+          transition: 'transform 0.15s ease-out, box-shadow 0.2s ease-out',
+          transformStyle: 'preserve-3d',
+          willChange: 'transform'
+        }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
         <span className="risk-badge" style={{ background: 'var(--maroon-light)', color: 'var(--maroon)' }}>
           {data.stage}
         </span>
-        <h3 style={{ margin: '0.75rem 0' }}>{data.title}</h3>
-        <p style={{ fontSize: '1.05rem', lineHeight: '1.7', marginBottom: 0 }}>
+        <h3 style={{ margin: '0.75rem 0', transform: 'translateZ(20px)' }}>{data.title}</h3>
+        <p style={{ fontSize: '1.05rem', lineHeight: '1.7', marginBottom: 0, transform: 'translateZ(10px)' }}>
           {data.desc}
         </p>
       </div>
