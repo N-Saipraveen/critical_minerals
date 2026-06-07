@@ -1707,7 +1707,23 @@ nav a:hover::after {
 /* ==========================================================================
    13. KABIL & PARTNERSHIPS
    ========================================================================== */
-.kabil-map-box {
+/* ==========================================================================
+   13. KABIL & PARTNERSHIPS
+   ========================================================================== */
+.partnership-dashboard-layout {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 992px) {
+  .partnership-dashboard-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.partnership-map-panel {
   background: #FAF8F5; /* Premium warm background */
   border: 1px solid var(--border-color);
   border-radius: 20px;
@@ -1715,11 +1731,10 @@ nav a:hover::after {
   box-shadow: var(--shadow-md);
   position: relative;
   overflow: hidden;
-  margin-bottom: 3rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 400px;
 }
 
 .kabil-svg-container {
@@ -1738,41 +1753,26 @@ nav a:hover::after {
 
 /* World Vector Map Path Styling */
 .kabil-svg-container svg path {
-  fill: #EAE6DF; /* Light concrete background */
-  stroke: #FFFFFF;
-  stroke-width: 0.8px;
-  transition: fill 0.3s ease;
-}
-
-.kabil-svg-container svg path:hover {
-  fill: #DCD6CD;
-}
-
-/* Highlight KABIL/MSP Partner Countries */
-.kabil-svg-container svg path[id="au"],
-.kabil-svg-container svg path[id="ar"],
-.kabil-svg-container svg path[id="fr"],
-.kabil-svg-container svg g[id="us"] path {
-  fill: rgba(26, 122, 122, 0.15); /* Light mineral teal */
-  stroke: var(--teal);
-  stroke-width: 1px;
-}
-
-.kabil-svg-container svg path[id="in"] {
-  fill: rgba(107, 15, 26, 0.15); /* Light maroon for India */
-  stroke: var(--maroon);
-  stroke-width: 1.2px;
+  transition: all 0.3s ease;
 }
 
 /* Interactive SVG Overlay Elements */
 .kabil-arc {
   fill: none;
-  stroke: var(--maroon);
-  stroke-width: 1.5px;
   stroke-linecap: round;
   stroke-dasharray: 6, 4;
   animation: kabilFlow 20s linear infinite;
-  opacity: 0.75;
+}
+
+.kabil-arc.active {
+  stroke-dasharray: 6, 3;
+  animation: kabilFlow 8s linear infinite;
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.15));
+}
+
+.kabil-arc.inactive {
+  stroke-dasharray: none;
+  animation: none;
 }
 
 @keyframes kabilFlow {
@@ -1782,25 +1782,14 @@ nav a:hover::after {
 }
 
 .kabil-pin-dot {
-  fill: var(--maroon);
   stroke: #FFFFFF;
   stroke-width: 1px;
 }
 
-.kabil-pin-dot.partner {
-  fill: var(--gold);
-}
-
 .kabil-pulse-circle {
   fill: none;
-  stroke: var(--gold);
-  stroke-width: 1.2px;
   animation: svgPulse 2.5s infinite ease-out;
   transform-origin: center;
-}
-
-.kabil-pulse-circle.hub {
-  stroke: var(--maroon);
 }
 
 @keyframes svgPulse {
@@ -1809,7 +1798,7 @@ nav a:hover::after {
     opacity: 0.85;
   }
   100% {
-    r: 14px;
+    r: 18px;
     opacity: 0;
   }
 }
@@ -1831,30 +1820,130 @@ nav a:hover::after {
   font-weight: 900;
 }
 
-.kabil-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+/* Intelligence Panel & Tabs */
+.partnership-intel-panel {
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
 }
 
-.kabil-card {
+.partnership-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+@media (max-width: 480px) {
+  .partnership-tabs {
+    grid-template-columns: 1fr;
+  }
+}
+
+.partnership-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: var(--card-bg);
+  cursor: pointer;
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: left;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.partnership-tab-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.partnership-tab-btn.active {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  font-weight: 800;
+}
+
+.partnership-card-active {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
-  border-radius: 12px;
+  border-left: 5px solid var(--maroon);
+  border-radius: 14px;
   padding: 2rem;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.3s;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 0.4s ease-out;
 }
 
-.kabil-card:hover {
-  border-color: var(--teal);
+.partner-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
 }
 
-.kabil-partner {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  color: var(--maroon);
-  margin-bottom: 0.5rem;
+.partner-card-header h4 {
+  font-size: 1.35rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.partner-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+}
+
+.partner-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.25rem;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.spec-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.spec-val {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+
+.partner-detail-body {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.strategic-relevance-p {
+  background: var(--gold-light);
+  border: 1px solid rgba(212, 160, 23, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  color: #5C4A21;
 }
 
 /* ==========================================================================

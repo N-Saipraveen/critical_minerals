@@ -6,6 +6,7 @@ import MineralsTable from './components/MineralsTable';
 import StatsCounter from './components/StatsCounter';
 import MineralsCalculator from './components/MineralsCalculator';
 import SupplyChainPlanner from './components/SupplyChainPlanner';
+import PartnershipsDashboard from './components/PartnershipsDashboard';
 import { ChinaDominanceChart, RecyclingProgressRings } from './components/Charts';
 
 const App = () => {
@@ -24,28 +25,9 @@ const App = () => {
 
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [showBibliography, setShowBibliography] = useState(false);
-  const [worldSvgContent, setWorldSvgContent] = useState('');
 
   const tableRef = useRef(null);
   const latticeCanvasRef = useRef(null);
-
-  // Fetch KABIL world map SVG
-  useEffect(() => {
-    fetch('/world.svg')
-      .then(res => {
-        if (!res.ok) throw new Error('Failed to load world map');
-        return res.text();
-      })
-      .then(text => {
-        const svgStart = text.indexOf('<svg');
-        if (svgStart !== -1) {
-          setWorldSvgContent(text.substring(svgStart));
-        } else {
-          setWorldSvgContent(text);
-        }
-      })
-      .catch(err => console.error(err));
-  }, []);
 
   // Intersection Observer for scroll reveals
   useEffect(() => {
@@ -813,87 +795,10 @@ const App = () => {
         <div className="container">
           <h2>International Cooperation & KABIL</h2>
           <p style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 4rem' }} className="reveal">
-            India is actively building international diplomatic ties and joint ventures to secure mineral access.
+            India is actively building international diplomatic ties and joint ventures to secure mineral access. Select a partner country or coalition to explore details.
           </p>
 
-          <div className="kabil-map-box reveal">
-            {worldSvgContent ? (
-              <div className="kabil-svg-container">
-                <div 
-                  dangerouslySetInnerHTML={{ __html: worldSvgContent }} 
-                  style={{ width: '100%', height: 'auto', display: 'block' }}
-                />
-                
-                {/* Absolute-congruent SVG Overlay for arcs, hub pulses and vector labels */}
-                <svg 
-                  viewBox="30.767 241.591 784.077 458.627" 
-                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 5 }}
-                >
-                  {/* India to USA Arc */}
-                  <path d="M 601.86,472.57 Q 397.59,345.81 193.32,419.05" className="kabil-arc" />
-                  
-                  {/* India to France/EU Arc */}
-                  <path d="M 601.86,472.57 Q 499.43,441.94 397.00,491.32" className="kabil-arc" />
-                  
-                  {/* India to Argentina Arc */}
-                  <path d="M 601.86,472.57 Q 431.73,557.30 261.60,642.04" className="kabil-arc" />
-                  
-                  {/* India to Australia Arc */}
-                  <path d="M 601.86,472.57 Q 660.18,548.07 718.51,623.58" className="kabil-arc" />
-                  
-                  {/* Pulsing halos and solid pin dots */}
-                  {/* India Hub */}
-                  <circle cx="601.86" cy="472.57" r="10" className="kabil-pulse-circle hub" />
-                  <circle cx="601.86" cy="472.57" r="4" className="kabil-pin-dot" />
-
-                  {/* USA Partner */}
-                  <circle cx="193.32" cy="419.05" r="8" className="kabil-pulse-circle" />
-                  <circle cx="193.32" cy="419.05" r="3.5" className="kabil-pin-dot partner" />
-
-                  {/* France Partner (EU) */}
-                  <circle cx="397.00" cy="491.32" r="8" className="kabil-pulse-circle" />
-                  <circle cx="397.00" cy="491.32" r="3.5" className="kabil-pin-dot partner" />
-
-                  {/* Argentina Partner */}
-                  <circle cx="261.60" cy="642.04" r="8" className="kabil-pulse-circle" />
-                  <circle cx="261.60" cy="642.04" r="3.5" className="kabil-pin-dot partner" />
-
-                  {/* Australia Partner */}
-                  <circle cx="718.51" cy="623.58" r="8" className="kabil-pulse-circle" />
-                  <circle cx="718.51" cy="623.58" r="3.5" className="kabil-pin-dot partner" />
-
-                  {/* Clean vector labels */}
-                  <text x="601.86" y="458.57" className="kabil-label hub-label">India (KABIL Hub)</text>
-                  <text x="193.32" y="405.05" className="kabil-label">USA (MSP)</text>
-                  <text x="397.00" y="477.32" className="kabil-label">EU (TTC)</text>
-                  <text x="261.60" y="628.04" className="kabil-label">Argentina</text>
-                  <text x="718.51" y="609.58" className="kabil-label">Australia</text>
-                </svg>
-              </div>
-            ) : (
-              <div style={{ height: '350px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-secondary)' }}>
-                Loading global partnership map...
-              </div>
-            )}
-          </div>
-
-          <div className="kabil-cards-grid reveal">
-            <div className="kabil-card">
-              <span className="kabil-partner">🇦🇷 Argentina Agreement</span>
-              <p><strong>Focus:</strong> Lithium brine exploration.</p>
-              <p>KABIL secured exploration rights for five lithium brine blocks in Catamarca Province, investing $24 million to establish domestic equity stakes.</p>
-            </div>
-            <div className="kabil-card">
-              <span className="kabil-partner">🇦🇺 Australia Partnership</span>
-              <p><strong>Focus:</strong> Lithium & Cobalt hard-rock deposits.</p>
-              <p>Co-investing $6 million in exploratory pipelines to identify hard-rock lithium deposits in Western Australia for priority supply channels.</p>
-            </div>
-            <div className="kabil-card">
-              <span className="kabil-partner">🌐 Mineral Security Partnership (MSP)</span>
-              <p><strong>Focus:</strong> Multilateral security alliances.</p>
-              <p>India joined the US-led MSP in 2023, collaborating alongside 13 other nations to build alternative, China-free processing chains.</p>
-            </div>
-          </div>
+          <PartnershipsDashboard />
         </div>
       </section>
 
